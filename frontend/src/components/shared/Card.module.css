@@ -1,0 +1,37 @@
+
+.card{
+ background-color: #1D1A1D;
+ width: 500px;
+ max-width: 90%;
+
+ min-height: 300px;
+ padding: 30px;
+ border-radius: 20px;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ /* text-align: center; */
+}
+.headingWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 29px; */
+    /* font-weight: bolder; */
+    white-space: nowrap;
+    font-size: 12px;
+    
+}
+.headingWrapper img{
+    width: 10%;
+    
+}
+
+.headingWrapper h1{
+    margin-left: 13px;
+}
+
+  
+    

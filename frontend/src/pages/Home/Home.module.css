@@ -1,0 +1,25 @@
+.cardWrapper{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    margin-top: 3rem;
+}
+.text{
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.2 ;
+    color: #464947;
+    text-align: center;
+}
+
+.linkWrapper{
+    color: #1A429A;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.linkWrapper span{
+    margin-right: 10px;
+}
