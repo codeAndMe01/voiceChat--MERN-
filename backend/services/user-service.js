@@ -3,9 +3,10 @@ const UserModel = require('../models/user-model');
 class UserService{
     
     async findUser(filter){
+
         
         try {
-            const user = await UserModel.findOne(filter);
+            const user = await UserModel.findOne(filter); 
             return user;
           } catch (error) {
             console.error('Error finding user:', error);

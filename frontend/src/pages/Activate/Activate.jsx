@@ -1,12 +1,27 @@
-import React from "react";
+import React,{useState} from "react";
+import StepName from "../../pages/Register/Steps/StepName/StepName"
+import StepAvatar from "../../pages/Register/Steps/StepAvatar/StepAvatar"
+
+const steps = {
+    1: StepName,
+    2:StepAvatar,
+}
 
 const Activate = () =>{
 
+    const [step,setStep] = useState(1);
+    const Step = steps[step]
+     
+    function onNext(){
+        setStep(step + 1);
+    }
+     
    return (
-       <h1>
-
-       Activate Componet
-       </h1>
+         
+    <div className="cardWrapper">
+        <Step onNext={onNext}></Step>
+    </div>
+        
    )
 
 }

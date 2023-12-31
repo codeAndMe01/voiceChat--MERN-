@@ -17,7 +17,7 @@
   /* Set default styles for body */
   body {
     font-family: 'Nunito', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #ffff; /* Set default text color */
 
     background-color: #131215;
@@ -74,4 +74,12 @@
 
     margin: auto;
 
+  }
+
+  .cardWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: calc(100vh - 140px);
   }
