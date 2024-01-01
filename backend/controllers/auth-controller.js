@@ -113,9 +113,9 @@ class AuthController{
 
     async refresh(req,res){
        
-        const {refreshToken : refreshTokenFromCookie} = req.cookie;
+        const {refreshToken : refreshTokenFromCookie} = req.cookies;
 
-        //check if cookie is valid
+        //check if token is valid
 
         let userData;
         try {
@@ -128,7 +128,7 @@ class AuthController{
         
         try {
            
-           const token = await tokenService.findRefreshToken(userData.userId , refreshTokenFromCookie)
+           const token = await tokenService.findRefreshToken(userData._id , refreshTokenFromCookie);
 
             if(!token){
                 return res.status(401).json({message: 'Invalid token'})
@@ -139,19 +139,19 @@ class AuthController{
         } 
 
         //check if valid user
-        const user = await userService.findUser({userId:userData.userId});
+        const user = await userService.findUser({_id:userData._id});
 
         if(!user){
             return res.status(404).json({message: 'No user'});
         }
 
         //Generate-new Tokens
-        const {refreshToken, accessToken} = tokenService.generateTokens({userId:userData.userId});
+        const {refreshToken, accessToken} = tokenService.generateTokens({_id:userData._id});
 
         //update token
         try {
              
-            await tokenService.updateRefreshToken(userData.userId,refreshToken);
+            await tokenService.updateRefreshToken(userData._id,refreshToken);
 
         } catch (error) {
             return res.status(500).json({message : 'Internal error'});
@@ -174,6 +174,19 @@ class AuthController{
          res.json({user:userDto , auth:true})
 
     }
+
+    async logout(req,res){
+         
+        const { refreshToken } = req.cookies;
+        
+        //delete refresh token from DB
+        await tokenService.removeToken(refreshToken);
+       
+        //delete cookies
+        res.clearCookie('refreshToken');
+        res.clearCookie('accessToken');
+        res.json({user: null, auth: false})
+    } 
 
 }
 

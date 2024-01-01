@@ -11,13 +11,20 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 import { useSelector } from 'react-redux';
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+import Loader from './Loader/Loader';
 
 
 
 
 
 function App() {
-  return (
+   
+
+   const {loading} =  useLoadingWithRefresh()
+
+  return loading ? (<Loader message="Loading please wait ..."/>)
+   : (
     <Router>  {/* Correct the component name to BrowserRouter */}
       
       <Navigation />

@@ -7,14 +7,14 @@ import {useSelector,useDispatch} from 'react-redux'
 import {setAvatar} from '../../../../store/activateSlice'
 import { activate } from "../../../../http";
 import {setAuth} from "../../../../store/authSlice"
+import Loader from "../../../../Loader/Loader";
 
 
 const StepAvatar = ({onNext}) =>{
     const dispatch = useDispatch();
-
     const {name,avatar} = useSelector((state) => state.activate)
-
     const [image,setImage] = useState('/images/Ellipse-5.png')
+    const [loading,setLoading] = useState(false)
 
     function captureAvatar(e){
         const file = e.target.files[0];
@@ -31,6 +31,11 @@ const StepAvatar = ({onNext}) =>{
      
     async function submit(){
       
+        if(!avatar || !name) return;
+   
+
+        setLoading(true);
+      
         try {
             const {data} = await activate({name,avatar})
             
@@ -41,9 +46,13 @@ const StepAvatar = ({onNext}) =>{
             
         } catch (error) {
             console.log(error)
+        }finally{
+            setLoading(false);
         }
 
     }
+
+    if(loading) return <Loader message="Activation in Progress.."/>
 
     return (
         <>
@@ -51,7 +60,7 @@ const StepAvatar = ({onNext}) =>{
                     title={`Okay, ${name} `}
                     icon="Emoji-monkey"
                   >
-                    <p className={styles.subheading}>How’s this photo?</p>
+                    <p className={styles.subheading}>is this your photo?</p>
                    
                    <div className={styles.avatarWrapper}>
                     <img className={styles.avatarImg} src={image} alt="avatar" />

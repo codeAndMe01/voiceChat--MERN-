@@ -1,0 +1,17 @@
+.message{
+    color: wheat;
+    font-size: 1.2rem;
+}
+
+.spinner{
+   
+    margin-bottom: 20px;
+    animation: spin 1s ease-in-out infinite;
+} 
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
