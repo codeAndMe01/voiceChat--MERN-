@@ -22,7 +22,8 @@ const Navigation = ()=>{
     }
 
     const dispatch = useDispatch();
-    const {isAuth} = useSelector(state => state.auth)
+    const {isAuth,user} = useSelector(state => state.auth)
+    // console.log(user)
 
     async function logoutUser(){
        
@@ -38,11 +39,22 @@ const Navigation = ()=>{
     return (
         <nav className={`${style.navbar} container`}>
             <Link style={brandStyle} to="/">
-                <img src="/images/logo.png" alt="logo" />
+                <img className={style.logo} src="/images/logo.png" alt="logo" />
                 <span style={logoText}>club-House</span>
             </Link>
+            
+               <div className={style.navRight}>
+                <h3>{user.name}</h3>
+                <Link to="/">
+                 <img className={style.profile} src={user.avatar}  alt="" />
+                </Link>
+                 <button className={style.logOutBtn} onClick={logoutUser}>
+                    <img src="/images/logOut.jpg" alt="" />
+                 </button>
+               </div>
 
-           {isAuth && <button onClick={logoutUser}>Logout</button>}
+ 
+
 
         </nav>
     )

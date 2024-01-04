@@ -60,10 +60,10 @@
     border-spacing: 0;
   }
 
-  img{
-    height: auto ;
-    width: 10%;
-
+  button{
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
 
   .container{

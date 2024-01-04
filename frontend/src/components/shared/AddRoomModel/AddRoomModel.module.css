@@ -1,0 +1,89 @@
+.modelMask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.modelBody{
+    width: 50%;
+    max-width: 500px;
+    background: #1d1d1d;
+    position: relative;
+}
+
+.modelHeader{
+    padding: 30px;
+    border-bottom: 2px solid #262626;
+}
+
+.roomTypes{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+.typeBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#262626 ;
+    padding: 10px;
+    border-radius: 20%;
+}
+
+.heading{
+    margin: 5px;
+    font-weight: bolder;
+}
+.subHeading{
+    font-size:20px;
+    margin: 10px 0; 
+    font-weight: bolder;
+}
+
+.modelFooter{
+    padding: 20px;
+    text-align: center;
+}
+
+.modelFooter h2{
+    margin-bottom: 10px;
+}
+
+.modelFooter button{
+    background-color: #20bd5f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    padding: 7px 10px;
+    border-radius: 30px;
+    justify-content: center;
+    margin: auto;
+    transition: all 0.5s ease-in;
+}
+
+.modelFooter button:hover{
+    background-color: #044D18;
+}
+
+.modelFooter img{
+    margin-right: 10px;
+}
+
+.closeButton{
+  
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+
+}

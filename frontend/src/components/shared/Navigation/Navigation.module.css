@@ -4,3 +4,30 @@
     align-items: center;
     justify-content: space-between;
 }
+.logo{
+    height: auto;
+    width: 10%;
+}
+.navRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+}
+.profile{
+ 
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #0076FC;
+}
+
+.logOutBtn{
+    width: 112px;
+    height: 50px;
+}
+
+.logOutBtn img{
+    height: auto;
+    width: 10%;
+}
